@@ -3,9 +3,9 @@ Examples of data wrangling using publicly-available demographic datasets and SQL
 
 ## Introduction 
 
-This example will go through how to wrangle demographic data using MS SQL (Access). We will also be using R to download data (median household income) from the 5-Year American Community Survey (ACS) to help us join the two subqeries, filter, and order the results. 
+This example will go through how to wrangle demographic data using MS SQL (Access). We will also be using R to download data (median household income) from the 5-Year American Community Survey (ACS) to help us join the two subqueries, filter, and order the results. 
 
-This exercise assumes that one maintans a databse which has collected, over the years, varioous population estimates from the same source as tables and stores them in a flat-file relational database. Even as a stand-alone exercise, this brief guide will demonstrate the value of using SQL in conjunction with other data processing tools, in this case R, to tackle complex queries. 
+This exercise assumes that one maintains a database which has collected, over the years, various population estimates from the same source as tables and stores them in a flat-file relational database. Even as a stand-alone exercise, this brief guide will demonstrate the value of using SQL in conjunction with other data processing tools, in this case R, to tackle complex queries. 
 
 ## Data 
 
@@ -81,9 +81,9 @@ Here’s a step-by-step guide to help you import the file to Access:
 7. **Finish and Save**:
    Once you’ve completed the wizard, click “Finish.” You’ll have the option to save the import steps if you need to perform the same import again in the future.
 
-With the file now in your database, you notice the absence of meedian household income data. We will be adding 2023 data to the table, but first we need to source this information. 
+With the file now in your database, you notice the absence of median household income data. We will be adding 2023 data to the table, but first we need to source this information. 
 The 5-year American Community Survey (ACS) for 2023 covers data collected from 2018 to 2022 for their 2023 5-year release. This period provides a comprehensive overview of various social, economic, housing, and demographic characteristics.
-To access this data, we will first need to requesdt a Census Data API Key from https://api.census.gov/data/key_signup.html. Don't forget to activate your key once you receive it!
+To access this data, we will first need to request a Census Data API Key from https://api.census.gov/data/key_signup.html. Don't forget to activate your key once you receive it!
 
 Now, we will be requesting this data using the Multiyear_ACS_5year_Median_HHincome_ALL.r code available in this repository. 
 
@@ -115,7 +115,7 @@ ORDER BY july1_2023_pop_est DESC;
 
 Save the query. 
 
-You can also calcualate the averge median household income across all counties:
+You can also calculate the average median household income across all counties:
 
 ```
 SELECT AVG(estimate) AS avg_median_income
@@ -128,7 +128,7 @@ SELECT TOP 10 county, estimate
 FROM [2023_txpopest_county]
 ORDER BY estimate DESC;
 ```
-Due to that way in which Access handles queries, you will have to run two queries seperately.
+Due to that way in which Access handles queries, you will have to run two queries separately.
 
 ```
 SELECT TOP 10 county, estimate
