@@ -1,4 +1,4 @@
-# Obtain median household income for all TX counties using the 5YR ACS (2020-2023) using RStudio
+# Obtain median household income for all TX counties using the 5YR ACS (2018-2022) using RStudio
 # This code is an amended version of Multiyear_ACS_5year_Median_HHincome  
 
 # Load pacman; if not already installed, I highly encourage you to do so-especially if you're working with a lot of packages!
