@@ -1,0 +1,44 @@
+# Regional Control Totals, Table 13: 5-year pop estimates 2011-2020 ACS 5-year`
+
+# Load pacman
+library("pacman")
+
+# Load libraries using p_load
+p_load(tidyverse, tidycensus)
+
+# Load census api key
+census_api_key("581e11f28630d5911ef4cc16559d23128533046a")
+
+# Load variables for subject tables "acs5/subject"
+v17 <- load_variables(2017, "acs5", cache = TRUE)
+
+# Obtain subject table for household income
+View(v17)
+
+# Median household income == S0101_C01_001
+# Which variables?
+
+medianhh <- c(pop = "B19013A_001")
+
+# Which counties?
+# my_counties <- c("Jones",
+#                 "Taylor")
+
+# which years?
+#years <- lst(2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020)
+years <- lst(2020, 2021, 2022, 2023)
+df <- map_dfr(
+  years,
+  ~ get_acs(
+    geography = "county",
+    variables = medianhh,
+    state = "TX",
+#    county = my_counties,
+    year = .x,
+    survey = "acs5",
+    geometry = FALSE,
+    output = "wide"
+  ),
+  .id = "year"
+)
+write.csv(df, "C:\\Users\\rafae\\Downloads\\medhhacs1.csv")
