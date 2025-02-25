@@ -3,7 +3,7 @@ Examples of data wrangling using publicly-available demographic datasets and SQL
 
 ## Introduction 
 
-This example will go through how to wrangle demographic data using MS SQL (Access). We will also be using R to download data (median household income) from the 5YR American Community Survey (ACS) to help us join the two subqeries, filter, and order the results. 
+This example will go through how to wrangle demographic data using MS SQL (Access). We will also be using R to download data (median household income) from the 5-Year American Community Survey (ACS) to help us join the two subqeries, filter, and order the results. 
 
 This exercise assumes that one maintans a databse which has collected, over the years, varioous population estimates from the same source as tables and stores them in a flat-file relational database. Even as a stand-alone exercise, this brief guide will demonstrate the value of using SQL in conjunction with other data processing tools, in this case R, to tackle complex queries. 
 
@@ -138,6 +138,6 @@ ORDER BY estimate ASC;
 
 ## Conclusion
 
-In conclusion, this guide demonstrates the seamless integration of MS SQL (Access) and R to effectively wrangle and analyze demographic data. By combining the strengths of both tools, users can efficiently download, join, filter, and order data from the 5YR American Community Survey (ACS), providing valuable insights into median household incomes across counties. Whether maintaining a long-term database or working with a stand-alone dataset, this exercise showcases the practical benefits of leveraging SQL alongside R for addressing complex queries and enhancing data analysis capabilities.
+In conclusion, this guide demonstrates the seamless integration of MS SQL (Access) and R to effectively wrangle and analyze demographic data. By combining the strengths of both tools, users can efficiently download, join, filter, and order data from the 5-Year ACS, providing valuable insights into median household incomes across counties. Whether maintaining a long-term database or working with a stand-alone dataset, this exercise showcases the practical benefits of leveraging SQL alongside R for addressing complex queries and enhancing data analysis capabilities.
 
 I look forward to adding more examples in the near-future including ways to calculate population density, state median household income calculations, and much more!
