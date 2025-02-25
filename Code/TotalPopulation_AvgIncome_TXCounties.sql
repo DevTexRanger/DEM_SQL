@@ -1,17 +1,24 @@
---Create the first query for total population MS SQL:
-SELECT county, SUM(census_2020_count) AS total_population
-FROM 2023_txpopest_county
-GROUP BY county;
+--Run these as seperate, independent queries
+--Once a new table has been created, you want to add a column (estimate) from medhhacs to 2023_txpopest_county. You do this by using a common value (county):
 
---Create the second query (c2) for average income:
-SELECT county, AVG(MedianHH) AS avg_income
-FROM 2023_txpopest_county
-GROUP BY county;
+ALTER TABLE [2023_txpopest_county] ADD COLUMN estimate NUMBER; 
 
---Create the main query to join the results of the two saved queries:
-SELECT Query1_TotalPopulation.county, Query1_TotalPopulation.total_population, Query2_AvgIncome.avg_income
-FROM Query1_TotalPopulation INNER JOIN Query2_AvgIncome ON Query1_TotalPopulation.county = Query2_AvgIncome.county
-WHERE Query1_TotalPopulation.total_population > 100000
-ORDER BY Query1_TotalPopulation.total_population DESC;
+-- Include only counties with a total population greater than 100,000, and Orders the results by the total population in descending order.
+SELECT july1_2023_pop_est, county
+FROM [2023_txpopest_county]
+WHERE july1_2023_pop_est > 100000
+ORDER BY july1_2023_pop_est DESC;
 
+--You can also calculate the averge median household income across all counties:
+SELECT AVG(estimate) AS avg_median_income
+FROM [2023_txpopest_county];
 
+--You can run the following query to find out the top and bottom 10 Counties by Median Household Income:
+
+SELECT TOP 10 county, estimate
+FROM [2023_txpopest_county]
+ORDER BY estimate DESC;
+
+SELECT TOP 10 county, estimate
+FROM [2023_txpopest_county]
+ORDER BY estimate ASC;
