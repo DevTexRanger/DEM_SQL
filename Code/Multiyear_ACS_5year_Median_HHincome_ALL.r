@@ -35,5 +35,5 @@ df <- map_dfr(
   .id = "year"
 )
 
-# Save the output 'df' as a CSV file 
-write.csv(df, "medhhacs.csv")
+# Save the output 'df' as a CSV file; if on Windows, remember to use double backslashes (\\) as a directory separator in file paths 
+write.csv(df, "...\\GitHub\\DEM_SQL\\medhhacs.csv")
